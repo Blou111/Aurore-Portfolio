@@ -1,0 +1,413 @@
+:root 
+{
+    --bg: #4a5c5c;
+    --bg-dark: #3d4f4f;
+    --pink: #e8a0ab;
+    --sage: #8fbaaa;
+    --cream: #e8e0d4;
+    --text: #f5ede0;
+    --text-dim: #c8bfb5;
+}
+
+*, *::before, *::after 
+{ 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    cursor: none;
+}
+
+html 
+{ 
+    scroll-behavior: smooth; 
+}
+
+body 
+{
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+
+/* CUSTOM CURSOR */
+*
+{
+    cursor: none;
+}
+
+#cursor-dot
+{
+    position: fixed; 
+    width: 8px; 
+    height: 8px;
+    background: var(--text); 
+    border-radius: 50%;
+    pointer-events: none; 
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: background 0.2s, transform 0.15s;
+}
+
+#cursor-ring 
+{
+    position: fixed; 
+    width: 32px; 
+    height: 32px;
+    border: 1.5px solid rgba(245,237,224,0.5); 
+    border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s, height 0.25s, border-color 0.25s;
+}
+
+body.cursor-hover #cursor-dot 
+{ 
+    background: var(--pink); 
+    transform: translate(-50%,-50%) scale(1.6); 
+}
+
+body.cursor-hover #cursor-ring 
+{ 
+    width: 52px; 
+    height: 52px; 
+    border-color: var(--pink); 
+}
+
+/* NAVIGATION */
+nav 
+{
+    display: flex; 
+    align-items: center; 
+    padding: 1rem 2rem;
+}
+
+.nav-back 
+{
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+    color: var(--text); 
+
+    text-decoration: none;
+
+    font-size: 12px; 
+}
+
+.nav-back:hover 
+{ 
+    opacity: 1; 
+}
+
+.nav-back .arrow
+{ 
+    font-size: 18px;
+}
+
+nav ul 
+{ 
+    display: flex; 
+    gap: 28px; 
+    list-style: none; 
+}
+
+nav a {
+    color: var(--text); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.04em;
+    opacity: 0.85; transition: opacity 0.2s;
+}
+nav a:hover 
+{ 
+    opacity: 1; 
+}
+
+/* HERO */
+.hero 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5rem 8rem;
+}
+
+.project-title 
+{
+    /* COLOR AND FONTS */
+    font-family: 'Caveat', cursive;
+    font-size: clamp(48px, 9vw, 80px);
+    color: var(--text);
+
+    line-height: .;
+}
+
+/* tags for the project */
+.project-tags 
+{
+    display: flex;
+    flex-wrap: wrap;
+    animation: fadeDown 0.8s 0.1s ease both;
+}
+
+.tag {
+    font-size: .8rem; 
+    letter-spacing: 0.1em; 
+    text-transform: uppercase;
+
+    padding: .5rem 1rem; 
+    border: .05rem solid rgba(245,237,224,0.25);
+    color: var(--text-dim);
+
+    margin-right: .5rem;
+}
+
+.tag.pink  
+{
+    border-color: var(--pink);  
+    color: var(--pink); 
+}
+
+.tag.sage  
+{ 
+    border-color: var(--sage);  
+    color: var(--sage); 
+}
+
+.tag.cream 
+{ 
+    border-color: var(--cream); 
+    color: var(--cream); 
+}
+
+/* description */
+.description-text p
+{
+    width: 90%;
+    margin: 1.5rem 0 1rem 0;
+}
+
+/* MAIN PROJECT IMAGE */
+.hero-polaroid 
+{
+    margin-top: 48px;
+    width: 100%; 
+    max-width: 720px;
+    background: var(--bg-dark);
+    border: 3px solid var(--pink);
+    animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-polaroid-img 
+{
+    width: 100%; 
+    aspect-ratio: 16/9;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.hero-polaroid-img img 
+{ 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.hero-polaroid-bar 
+{ 
+    height: 32px; 
+    background: var(--pink); 
+}
+
+/* PAGE DIVIDER */
+.divider 
+{
+    width: 60%; 
+    max-width: 1000px; 
+    border: none;
+    border-top: 2px solid rgba(245,237,224,0.2);
+    margin: 3rem auto;
+}
+
+/* OUTILS */
+.tools-list 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 0 8rem 1rem 8rem;
+}
+
+.tool-badge 
+{
+    /* font-family: "Caveat"; */
+    font-size: .8rem; 
+    letter-spacing: 0.08rem;
+    padding: .5rem 1rem; 
+    background: var(--bg-dark);
+    border: 1.5px solid rgba(245,237,224,0.15);
+    color: var(--text-dim);
+}
+
+/* GALLERY SECTION */
+.project-body
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem 8rem 5rem 8rem;
+}
+
+.gallery-item 
+{
+    background: var(--bg-dark);
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+}
+
+.gallery-item:hover 
+{
+    transform: translateY(-5px) rotate(-0.8deg) scale(1.02);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+
+.gallery-item-img 
+{
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg);
+    color: rgba(245,237,224,0.25);
+}
+
+.gallery-item-img img 
+{ 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.gallery-item-bar 
+{ 
+    height: 22px; 
+}
+
+.gallery-item.pol-pink  .gallery-item-bar 
+{ 
+    background: var(--pink); 
+}
+
+.gallery-item.pol-sage  .gallery-item-bar 
+{ 
+    background: var(--sage); 
+}
+
+.gallery-item.pol-cream .gallery-item-bar 
+{ 
+    background: var(--cream); 
+}
+
+.gallery-caption 
+{
+    padding: 10px 14px 14px;
+    font-size: 11px; letter-spacing: 0.05em; color: var(--text-dim);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal 
+{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible 
+{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ANIMATIONS KEYFRAMES */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1000px) 
+{
+    .hero
+    {
+        flex-direction: column;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        margin-top: 5rem;
+    }
+
+    .tools-list
+    {
+        margin: .5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .tool-badge
+    {
+        padding-left: .8rem;
+        padding-right: .8rem;
+    }
+
+    .project-body
+    {
+        grid-template-columns: repeat(1, 1fr);
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .tag
+    {
+        margin: .5rem;
+    }
+}
+
+@media screen and (max-width: 512px)
+{
+    .hero
+    {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+    }
+
+    .tools-list
+    {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .project-body
+    {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+
+/* CLASS COLORS FOR POLAROID IMAGE */
+.pol-pink  
+{ 
+    border: 3px solid var(--pink); 
+}
+
+.pol-sage  
+{
+    border: 3px solid var(--sage); 
+}
+
+.pol-cream 
+{ 
+    border: 3px solid var(--cream); 
+}
