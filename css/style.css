@@ -125,6 +125,46 @@ body.cursor-hover #cursor-ring
     margin: 3rem auto;
 }
 
+/* tags for the skills */
+.skill-tags 
+{
+    display: flex;
+    flex-wrap: wrap;
+    animation: fadeDown 0.8s 0.1s ease both;
+    justify-content: center;
+    padding: 3rem 0rem .5rem 0rem;
+}
+
+.skill-tag {
+    font-size: .8rem; 
+    letter-spacing: 0.1em; 
+    text-transform: uppercase;
+
+    padding: .5rem 1rem; 
+    border: .05rem solid rgba(245,237,224,0.25);
+    color: var(--text-dim);
+
+    margin-right: .5rem;
+}
+
+.skill-tag.pink  
+{
+    border-color: var(--pink);  
+    color: var(--pink); 
+}
+
+.skill-tag.sage  
+{ 
+    border-color: var(--sage);  
+    color: var(--sage); 
+}
+
+.skill-tag.cream 
+{ 
+    border-color: var(--cream); 
+    color: var(--cream); 
+}
+
 /* PROJECT SECTION */
 .section-title
 {
@@ -189,10 +229,16 @@ body.cursor-hover #cursor-ring
     z-index: 2;
 }
 
+.polaroid a
+{
+    display: flex;
+    flex-direction: column;
+}
+
 .image-container
 {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16 / 9;
 }
 
 .image-container img 
@@ -204,7 +250,7 @@ body.cursor-hover #cursor-ring
 
 .polaroid-footer 
 {
-    height: 28px;
+    height: 22px;
 }
 
 /* ── A PROPOS ── */
@@ -237,15 +283,14 @@ body.cursor-hover #cursor-ring
     color: var(--text-dim);
     font-size: 13px;
     line-height: 1.85;
+    margin-bottom: 1rem;
 }
 
 .apropos-image 
 {
     width: 40%;
-    height: 30%;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    border: 1px solid var(--bg-dark);
+    height: 100%;
+    padding: 3rem;
 }
 
 .apropos-image img 
@@ -259,6 +304,7 @@ body.cursor-hover #cursor-ring
 {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 16px;
     align-items: center;
 
@@ -291,13 +337,19 @@ body.cursor-hover #cursor-ring
     color: var(--sage);
 }
 
+.contact-link.cream:hover 
+{
+    border-color: var(--cream);
+    color: var(--cream);
+}
+
 /* FOOTER */
 footer 
 {
     border-top: 1px solid var(--bg-dark);
     display: flex;
     justify-content: space-between;
-    padding: 2rem 10rem;
+    padding: 2rem 8rem;
 
     font-size: .7rem;
     color: rgba(245,237,224,0.3);
@@ -442,4 +494,16 @@ footer
 .pink
 {
     color: var(--pink);
+}
+
+.cream 
+{
+    color: #e8e0d4;
+}
+
+.highlight
+{
+    color: var(--pink);
+    font-weight: 700;
+    letter-spacing: .05rem;
 }

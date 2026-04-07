@@ -33,3 +33,54 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => observer.observe(el));
 
+
+
+
+function initLightbox()
+{
+    // Crée l'overlay une seule fois
+    const overlay = document.createElement("div");
+    overlay.id = "lightbox";
+    overlay.innerHTML= `<button id="lightbox-close" title="Fermer">X</button> <img id ="lightbox-img" src="" alt="">`;
+
+    document.body.appendChild(overlay);
+
+    const lightboxImg = overlay.querySelector('#lightbox-img');
+
+    function open(src, alt) 
+    {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() 
+    {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => { lightboxImg.src = ''; }, 300);
+    }
+
+    // Attache aux img dans .preview-grid (ignore les vidéos automatiquement)
+    const mainProjectImage = document.querySelector('.hero-polaroid-img img');
+    const projectImages = document.querySelectorAll('.gallery-item img');
+
+    mainProjectImage.style.cursor = 'zoom-in';
+    mainProjectImage.addEventListener('click', () => open(mainProjectImage.src, mainProjectImage.alt));  
+
+    projectImages.forEach(img => 
+    {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => open(img.src, img.alt));
+    });
+
+    // Fermeture
+    overlay.addEventListener('click', close);
+    overlay.querySelector('#lightbox-close').addEventListener('click', close);
+    lightboxImg.addEventListener('click', e => e.stopPropagation());
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+};
+
+initLightbox();
+
