@@ -144,7 +144,9 @@ body.cursor-hover #cursor-ring
     border: .05rem solid rgba(245,237,224,0.25);
     color: var(--text-dim);
 
-    margin-right: .5rem;
+    margin-right: .7rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
 }
 
 .skill-tag.pink  
